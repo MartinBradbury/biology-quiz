@@ -25,7 +25,7 @@ body {
 .start_btn button {
     font-size: 25px;
     font-weight: 500;
-    color: #fff;
+    color: #077ffb;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -38,6 +38,7 @@ body {
 /*Game instruction position and styling*/
 
 .info_box {
+    display: none;
     width: 540px;
     background: #fff;
     border-radius: 5px;
@@ -83,23 +84,31 @@ body {
     margin: 0 5px;
     height: 40px;
     width: 100px;
-    border: 1px solid transparent;
+    border: 1px solid #077ffb;
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .buttons button.quit {
-    border-color: #077bff;
     color: #077bff;
 
 }
 
 .buttons button.restart {
-    border-color: #077bff;
     color: #fff;
     background: #077ffb;
 
+}
+
+.buttons button.restart:hover {
+    background: #0263ca;
+}
+
+.buttons button.quit:hover {
+    color: #fff;
+    background: #077ffb;
 }
