@@ -12,24 +12,20 @@ body {
     background: grey;
 }
 
-.start_btn {
+
+.start_btn,
+.info_box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.game_info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
+/* start quiz button styling*/
 .start_btn button {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
-    color: blue;
+    color: #fff;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -37,6 +33,73 @@ body {
     background: #fff;
     cursor: pointer;
 
+}
 
+/*Game instruction position and styling*/
+
+.info_box {
+    width: 540px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.info_box .info_title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+
+
+}
+
+.info_box .info_list {
+    padding: 15px 35px;
+}
+
+.info_box .info_list .info {
+    margin: 5px 0;
+    font_size: 17px;
+}
+
+.info_box .info_list .info span {
+    font-weight: 600;
+    colour: green;
+}
+
+.info_box .buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 35px;
+    border-top: 1px solid lightgrey;
+}
+
+.info_box .buttons button {
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.buttons button.quit {
+    border-color: #077bff;
+    color: #077bff;
+
+}
+
+.buttons button.restart {
+    border-color: #077bff;
+    color: #fff;
+    background: #077ffb;
 
 }
