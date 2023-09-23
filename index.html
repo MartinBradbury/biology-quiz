@@ -9,20 +9,33 @@
     <title>Biological Molecules Quiz</title>
   </head>
   <body>
-    <div class="app">
-      <h1>Biological Molecules</h1>
-      <div class="quiz">
-        <h2 id="questions">question goes here</h2>
-        <div id="answer-buttons">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
+    <!--Start Quiz Button-->
+    <div class="start_btn">
+      <button>Start Quiz</button>
+    </div>
+
+    <!--Game instructions-->
+    <div class="game_info">
+      <div class="info_heading">
+        <span>Some Rules..</span>
+        <div class="info_list">
+          <div class="info">1. only 20seconds</div>
+          <div class="info">2. once selected no reselect</div>
+          <div class="info">3. cannot change answer after time</div>
+          <div class="info">4. you cannot exit the quiz once started</div>
+          <div class="info">5. you get points based on correct answers</div>
+          <div class="info">6. maybe negatively marked??</div>
         </div>
-        <button id="next-btn">Next</button>
+        
+        <!--Buttons to start quiz or exit-->
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
       </div>
     </div>
 
     <script src="assets/js/script.js"></script>
+    <script scr="https://kit.fontawesome.com/a076d05399.js"></script>
   </body>
 </html>
