@@ -77,6 +77,14 @@ function optionSelected(answer) {
     } else {
         answer.classList.add("incorrect");
         console.log("Answer is incorrect");
+
+        //if answer is incorrect, show correct answer by selecting it
+        for (let i = 0; i < allOptions; i++) {
+            if (option_list.children[i].textContent == correctAns) {
+                option_list.children[i].setAttribute("class", "option correct");
+            }
+
+        }
     }
 
     //once use has selected one answer disable all options
