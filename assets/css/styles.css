@@ -234,7 +234,7 @@ section .option_list .option {
     transition: all 0.5s ease;
 }
 
-/* Selected Correct and incorrect answer in the quiz*/
+/* Selected Correct and incorrect answer in the quiz and after selection*/
 
 .option_list .option.correct {
     color: #155724;
@@ -247,6 +247,11 @@ section .option_list .option {
     background: #f8d7da;
     border-color: #f5c6cb;
 }
+
+.option_list .option.disabled {
+    pointer-events: none;
+}
+
 
 /* Hover over question */
 
