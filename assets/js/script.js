@@ -49,6 +49,7 @@ next_btn.onclick = () => {
         startTimer(timeValue); //start time at timer value
         clearInterval(counterLine); //Counter Line
         startTimerLine(widthValue); //start counter line width
+        next_btn.style.display = "none";  //next button hidden until answer selected
     } else {
         console.log("Questions Complete!");
     }
@@ -105,6 +106,8 @@ function optionSelected(answer) {
     for (let i = 0; i < allOptions; i++) {
         option_list.children[i].classList.add("disabled");
     }
+
+    next_btn.style.display = "block";  //next button appears when answer selected
 }
 
 //timer in game area
