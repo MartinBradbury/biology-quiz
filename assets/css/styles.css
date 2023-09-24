@@ -234,6 +234,20 @@ section .option_list .option {
     transition: all 0.5s ease;
 }
 
+/* Selected Correct and incorrect answer in the quiz*/
+
+.option_list .option.correct {
+    color: #155724;
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.option_list .option.incorrect {
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 /* Hover over question */
 
 section .option_list .option:hover {

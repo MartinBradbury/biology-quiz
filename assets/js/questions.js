@@ -11,12 +11,12 @@ let questions = [
             "green",
             "purple"
         ]
-    
+
     },
     {
         numb: 2,
         question: "how many spots of rare ladybird",
-        answer: "1",
+        answer: "11",
         options: [
             "12",
             "11",
@@ -25,4 +25,4 @@ let questions = [
         ]
 
     },
-]
+];
