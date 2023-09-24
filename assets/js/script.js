@@ -5,6 +5,7 @@ const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
+const timeCount = quiz_box.querySelector(".timer .timer_sec");
 
 const option_list = document.querySelector(".option_list");
 
@@ -23,10 +24,13 @@ continue_btn.onclick = () => {
     quiz_box.classList.add("activeQuiz"); //shows the quiz
     showQuestions(0);
     queCounter(1);
+    startTimer(15); //timer start value
 };
 
 let que_count = 0;
 let que_numb = 1;
+let counter; //timer
+let timeValue = 15; //timer value
 
 const next_btn = quiz_box.querySelector(".next_btn");
 
@@ -38,6 +42,8 @@ next_btn.onclick = () => {
         que_numb++;
         showQuestions(que_count);
         queCounter(que_numb);
+        clearInterval(counter); //reset timer each question
+        startTimer(timeValue); //start time at timer value
     } else {
         console.log("Questions Complete!");
     }
@@ -67,7 +73,9 @@ function showQuestions(index) {
 
 }
 
+
 function optionSelected(answer) {
+    clearInterval(counter); //stops timer on answer select
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     const allOptions = option_list.children.length;
@@ -93,6 +101,15 @@ function optionSelected(answer) {
     }
 }
 
+//timer in game area
+
+function startTimer(time) {
+    counter = setInterval(timer, 1000);
+    function timer() {
+        timeCount.textContent = time;
+        time--; //time up or down can choose -- or ++
+    }
+}
 
 
 
