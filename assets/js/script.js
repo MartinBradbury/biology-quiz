@@ -6,6 +6,7 @@ const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
+const time_line = quiz_box.querySelector("header .time_line");
 
 const option_list = document.querySelector(".option_list");
 
@@ -25,12 +26,14 @@ continue_btn.onclick = () => {
     showQuestions(0);
     queCounter(1);
     startTimer(15); //timer start value
+    startTimerLine(0); //timer line
 };
 
 let que_count = 0;
 let que_numb = 1;
 let counter; //timer
 let timeValue = 15; //timer value
+let widthValue = 0; //timer width value
 
 const next_btn = quiz_box.querySelector(".next_btn");
 
@@ -44,6 +47,8 @@ next_btn.onclick = () => {
         queCounter(que_numb);
         clearInterval(counter); //reset timer each question
         startTimer(timeValue); //start time at timer value
+        clearInterval(counterLine); //Counter Line
+        startTimerLine(widthValue); //start counter line width
     } else {
         console.log("Questions Complete!");
     }
@@ -76,6 +81,7 @@ function showQuestions(index) {
 
 function optionSelected(answer) {
     clearInterval(counter); //stops timer on answer select
+    clearInterval(counterLine); //stops timer line on answer select
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     const allOptions = option_list.children.length;
@@ -108,6 +114,28 @@ function startTimer(time) {
     function timer() {
         timeCount.textContent = time;
         time--; //time up or down can choose -- or ++
+        if (time < 9) {//Unsure about this code with addZero??
+            let addZero = timeCount.textContent;
+            timeCount.textContent = "0" + addZero;
+        }
+        if (time < 0) {
+            clearInterval(counter);
+            timeCount.textContent = "00";
+        }
+    }
+}
+
+//Line count down in game area - code copied from above
+
+function startTimerLine(time) {
+    counterLine = setInterval(timer, 29);
+    function timer() {
+        time += 1;
+        time_line.style.width = time + "px";
+        if (time > 549) {
+            clearInterval(counterLine);
+
+        }
     }
 }
 

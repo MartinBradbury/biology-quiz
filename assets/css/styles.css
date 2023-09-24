@@ -199,6 +199,17 @@ body {
     user-select: none;
 }
 
+/* timer line styling*/
+
+.quiz_box header .time_line {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    
+    height: 3px;
+    background: #077ffb;
+}
+
 /* Question section */
 
 .quiz_box section {
