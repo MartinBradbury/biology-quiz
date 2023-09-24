@@ -25,6 +25,14 @@ body {
         0px 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.info_box.activeInfo {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
 /* start quiz button styling*/
 .start_btn button {
     font-size: 25px;
