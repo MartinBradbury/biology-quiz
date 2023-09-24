@@ -36,6 +36,9 @@ let timeValue = 15; //timer value
 let widthValue = 0; //timer width value
 
 const next_btn = quiz_box.querySelector(".next_btn");
+const result_box = document.querySelector(".result_box"); //Results section element
+const restart_quiz = result_box.querySelector(".buttons .restart"); //Restart Quiz element selector
+const quit_quiz = result_box.querySelector(".buttons .quit"); //quit quiz element selector
 
 //if nect button is clicked
 
@@ -52,6 +55,7 @@ next_btn.onclick = () => {
         next_btn.style.display = "none";  //next button hidden until answer selected
     } else {
         console.log("Questions Complete!");
+        showResultBox();
     }
 };
 
@@ -108,6 +112,12 @@ function optionSelected(answer) {
     }
 
     next_btn.style.display = "block";  //next button appears when answer selected
+}
+
+function showResultBox() {
+    info_box.classList.remove("activeInfo"); //remove info
+    quiz_box.classList.remove("activeQuiz"); //remove quiz
+    result_box.classList.add("activeResult"); //shows the results
 }
 
 //timer in game area

@@ -16,7 +16,7 @@ body {
 .start_btn,
 .info_box,
 .quiz_box,
-.results_box {
+.result_box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,7 +28,8 @@ body {
 
 /* Active windows */
 .info_box.activeInfo,
-.quiz_box.activeQuiz {
+.quiz_box.activeQuiz,
+.result_box.activeResult {
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -326,7 +327,7 @@ footer .next_btn:hover {
 }
 
 /* results pop up after the quiz with score*/
-.results_box {
+.result_box {
     background: #fff;
     width: 450px;
     padding: 25px 30px;
@@ -342,19 +343,19 @@ footer .next_btn:hover {
 }
 
 /* results box icon, add to HTML link*/
-.results_box .icon {
+.result_box .icon {
     font-size: 100px;
     color: #007bff;
     margin-bottom: 10px;
 }
 
-.results_box .complete_text {
+.result_box .complete_text {
     font-size: 20px;
     font-weight: 500;
 
 }
 
-.results_box .score_text span {
+.result_box .score_text span {
     display: flex;
     margin: 10px 0;
     font-size: 18px;
@@ -373,7 +374,7 @@ footer .next_btn:hover {
 
 }
 
-.results_box .buttons button {
+.result_box .buttons button {
     margin: 0 10px;
     height: 45px;
     padding: 0 20px;
