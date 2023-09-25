@@ -7,6 +7,7 @@ const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const time_line = quiz_box.querySelector("header .time_line");
+const timeOff = quiz_box.querySelector("header .timer_text");
 
 const option_list = document.querySelector(".option_list");
 
@@ -55,7 +56,6 @@ restart_quiz.onclick = () => {
     quiz_box.classList.add("activeQuiz");
     let que_count = 0;
     let que_numb = 1;
-
     let timeValue = 15; //timer value
     let widthValue = 0; //timer width value
     let userScore = 0; //Users score on results
@@ -66,9 +66,10 @@ restart_quiz.onclick = () => {
     clearInterval(counterLine); //Counter Line
     startTimerLine(widthValue); //start counter line width
     next_btn.style.display = "none";  //next button hidden until answer selected
+    timeOff.textContent = "Time Left"; // Sets timer text to time left on quiz restart.
 };
 
-//if nect button is clicked
+//if next button is clicked
 
 next_btn.onclick = () => {
     if (que_count < questions.length - 1) {
@@ -81,7 +82,10 @@ next_btn.onclick = () => {
         clearInterval(counterLine); //Counter Line
         startTimerLine(widthValue); //start counter line width
         next_btn.style.display = "none";  //next button hidden until answer selected
-    } else {
+        timeOff.textContent = "Time Left"; // If time hits 0, Time left shown on next click.
+    } else { // stops the timer and timeLine when answer selected. 
+        clearInterval(counter);
+        clearInterval(counterLine);
         console.log("Questions Complete!");
         showResultBox();
     }
@@ -117,7 +121,7 @@ function optionSelected(answer) {
     clearInterval(counterLine); //stops timer line on answer select
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
-    const allOptions = option_list.children.length;
+    let allOptions = option_list.children.length;
 
     if (userAns == correctAns) {
         userScore += 1; //User Score
@@ -179,6 +183,25 @@ function startTimer(time) {
         if (time < 0) {
             clearInterval(counter);
             timeCount.textContent = "00";
+
+            // Change text on timer if time runs to 0.
+            timeOff.textContent = "Time Off";
+
+            // Selects correct answer when timer runs out and stops user selecting an answer.
+            let correctAns = questions[que_count].answer;
+            let allOptions = option_list.children.length;
+
+            for (let i = 0; i < allOptions; i++) {
+                if (option_list.children[i].textContent == correctAns) {
+                    option_list.children[i].setAttribute("class", "option correct");
+                }
+
+            }
+            for (let i = 0; i < allOptions; i++) {
+                option_list.children[i].classList.add("disabled");
+            }
+
+            next_btn.style.display = "block";  //next button appears when answer selected
         }
     }
 }
