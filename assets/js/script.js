@@ -32,6 +32,7 @@ continue_btn.onclick = () => {
 let que_count = 0;
 let que_numb = 1;
 let counter; //timer
+let counterLine;
 let timeValue = 15; //timer value
 let widthValue = 0; //timer width value
 let userScore = 0; //Users score on results
@@ -41,6 +42,31 @@ const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box"); //Results section element
 const restart_quiz = result_box.querySelector(".buttons .restart"); //Restart Quiz element selector
 const quit_quiz = result_box.querySelector(".buttons .quit"); //quit quiz element selector
+
+// Reload the window on quit button click
+quit_quiz.onclick = () => {
+    window.location.reload();
+
+};
+
+// Restart button on click reloads the quiz and resets timer and score.
+restart_quiz.onclick = () => {
+    result_box.classList.remove("activeResult");
+    quiz_box.classList.add("activeQuiz");
+    let que_count = 0;
+    let que_numb = 1;
+
+    let timeValue = 15; //timer value
+    let widthValue = 0; //timer width value
+    let userScore = 0; //Users score on results
+    showQuestions(que_count);
+    queCounter(que_numb);
+    clearInterval(counter); //reset timer each question
+    startTimer(timeValue); //start time at timer value
+    clearInterval(counterLine); //Counter Line
+    startTimerLine(widthValue); //start counter line width
+    next_btn.style.display = "none";  //next button hidden until answer selected
+};
 
 //if nect button is clicked
 
