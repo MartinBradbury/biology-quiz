@@ -34,6 +34,8 @@ let que_numb = 1;
 let counter; //timer
 let timeValue = 15; //timer value
 let widthValue = 0; //timer width value
+let userScore = 0; //Users score on results
+
 
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box"); //Results section element
@@ -90,7 +92,10 @@ function optionSelected(answer) {
     let userAns = answer.textContent;
     let correctAns = questions[que_count].answer;
     const allOptions = option_list.children.length;
+
     if (userAns == correctAns) {
+        userScore += 1; //User Score
+        console.log(userScore); //Logging user score to console
         answer.classList.add("correct");
         console.log("Answer is Correct");
     } else {
@@ -118,6 +123,20 @@ function showResultBox() {
     info_box.classList.remove("activeInfo"); //remove info
     quiz_box.classList.remove("activeQuiz"); //remove quiz
     result_box.classList.add("activeResult"); //shows the results
+    const scoreText = result_box.querySelector(".score_text");
+    if (userScore > 1) { // if user scored more than 2
+        //creating a new span tag and passing the user score number and total question number
+        let scoreTag = '<span>and congrats! , You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }
+    else if (userScore > 0) { // if user scored more than 1
+        let scoreTag = '<span>and nice , You got <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }
+    else { // if user scored less than 1
+        let scoreTag = '<span>and sorry , You got only <p>' + userScore + '</p> out of <p>' + questions.length + '</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }
 }
 
 //timer in game area
